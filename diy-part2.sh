@@ -14,7 +14,7 @@
 sed -i 's/or "1"%>/or "1"%> ( <%=luci.sys.exec("expr `cat \/sys\/class\/thermal\/thermal_zone0\/temp` \/ 1000") or "?"%> \&#8451; ) /g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.100.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.3.1/g' package/base-files/files/bin/config_generate
 
 # 修改输出文件名
 #sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=full-$(shell date +%Y%m%d)-$(VERSION_DIST_SANITIZED)/g' include/image.mk
@@ -30,7 +30,7 @@ popd
 sed -i 's/luci-theme-bootstrap/luci-theme-infinityfreedom/g' feeds/luci/collections/luci/Makefile
 
 # 修改连接数数
-sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
+# sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 
 #替换为 JerryKuKu 的 Argon
 rm openwrt/package/lean/luci-theme-argon -rf
